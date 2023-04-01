@@ -19,8 +19,8 @@ const HomePage = (props : any) => {
       
     </div>
     <Cards cards={props.cards} />
-    <Offer/>
-    <TakeCourse/>
+    <Offer />
+    <TakeCourse promos={props.promos}/>
     </>
   );
 };
