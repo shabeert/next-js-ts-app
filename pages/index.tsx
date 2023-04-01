@@ -13,7 +13,6 @@ import OurCourses from '@/components/courses/ourcourses'
 
 
 const HomePage = (props : any) => {
-  console.log(props);
   return (
     <>
     <Banner  items = {props.banner}></Banner>    
@@ -31,7 +30,7 @@ export const getStaticProps = async () => {
     `https://horizontal-demo-default-rtdb.firebaseio.com/cards.json`
   );
   const cardsData= response.data;
-  console.log(cardsData);
+
   response = await axios.get(
     `https://horizontal-demo-default-rtdb.firebaseio.com/promocontent.json`
   );
