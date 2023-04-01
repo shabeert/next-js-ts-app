@@ -1,8 +1,5 @@
 const TakeCourse = () => {
-     const img = require("../images/bg_3.jpg");
-    const styling = {
-        backgroundImage: `url('${img}')`
-    }
+     
     return(
         <>
            <h1>Take course component</h1>
