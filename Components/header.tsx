@@ -9,6 +9,7 @@ function HeaderComponent(){
 	      </button>
 	      <div className="collapse navbar-collapse" id="ftco-nav">
 	        <ul className="navbar-nav ml-auto">
+
 	        	<li className="nav-item active"><a href="/" className="nav-link pl-0">Home</a></li>
 	        	<li className="nav-item"><a href="about" className="nav-link">About</a></li>
 	        	<li className="nav-item"><a href="teachers" className="nav-link">Teacher</a></li>
