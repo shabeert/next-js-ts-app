@@ -9,7 +9,7 @@ import '@/styles/ionicons.min.css'
 import '@/styles/flaticon.css'
 import '@/styles/icomoon.css'
 import '@/styles/style.css'
-import Layout from '../components/layout/Layout';
+import Layout from '@/components/layout/Layout'
 
 import type { AppProps } from 'next/app'
 
