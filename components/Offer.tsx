@@ -2,7 +2,11 @@ import ContentBlock from "./contentBlock";
 
 const Offer = () => {
     return(
+<<<<<<< HEAD
         <>
+=======
+        <>           
+>>>>>>> main
            <section className="ftco-section ftco-no-pt ftc-no-pb">
 			<div className="container">
 				<div className="row">

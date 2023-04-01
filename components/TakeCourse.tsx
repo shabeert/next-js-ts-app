@@ -13,7 +13,11 @@ type PromosListProps = {
 const TakeCourse = (props: PromosListProps) => {
      const promodata = props.promos;
     return(
+<<<<<<< HEAD
         <>
+=======
+        <> 
+>>>>>>> main
            <section className="ftco-intro" data-stellar-background-ratio="0.5" style={{backgroundImage:'url("../images/bg_3.jpg")'}}>
 			<div className="overlay"></div>
 			<div className="container">
