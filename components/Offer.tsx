@@ -1,7 +1,6 @@
 const Offer = () => {
     return(
-        <>
-           <h1>Offer component</h1>
+        <>           
            <section className="ftco-section ftco-no-pt ftc-no-pb">
 			<div className="container">
 				<div className="row">

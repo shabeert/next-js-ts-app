@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function Banner() {
+function Banner(props:any) {
   
   const DUMMY_BANNERITEMS = [
     {
@@ -18,12 +18,12 @@ function Banner() {
     },
   ];
 
-  const [bannerItems, setBannerItems] = useState(DUMMY_BANNERITEMS);
+  const [bannerItems, setBannerItems] = useState(props.items);  
 
   return (
     <>
       <section className="home-slider owl-carousel">
-        {bannerItems.map((item) => (
+        {bannerItems.map((item:any) => (
           <div key={item.id}
             className="slider-item"
             style={{ backgroundImage: `url(${item.image})` }}

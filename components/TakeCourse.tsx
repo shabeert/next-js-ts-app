@@ -1,8 +1,7 @@
 const TakeCourse = () => {
      
     return(
-        <>
-           <h1>Take course component</h1>
+        <> 
            <section className="ftco-intro" data-stellar-background-ratio="0.5" style={{backgroundImage:'url("../images/bg_3.jpg")'}}>
 			<div className="overlay"></div>
 			<div className="container">
