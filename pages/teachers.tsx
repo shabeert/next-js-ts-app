@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Layout from '@/components/layout/Layout'
 import TeachersList from '@/components/teachers/TeachersList'
+import ContactUsForm from '@/components/forms/contactus'
 
 
 
@@ -14,7 +15,7 @@ export default function Teachers(props : any) {
     <>     
      
       <TeachersList teachers={props.teachers}></TeachersList>
-      
+      <ContactUsForm></ContactUsForm>
       
     </>
   )
