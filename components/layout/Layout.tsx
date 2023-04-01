@@ -1,3 +1,6 @@
+import FooterComponent from "../footer";
+
+
 export default function Layout({ children }: {
     children: React.ReactNode;
   }) {
@@ -7,6 +10,7 @@ export default function Layout({ children }: {
             Test Content
             {children}
         </body>
+        <FooterComponent></FooterComponent>
       </html>
     );
   }
