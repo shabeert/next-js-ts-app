@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useReducer, useRef } from "react";
 
 
@@ -10,7 +11,7 @@ const ContactUsForm = () => {
   const phoneRef =useRef<HTMLInputElement>(null);
   
 
-  const submitHandler = (event: any) => {
+  const submitHandler = async (event: any) => {
     event.preventDefault();
     var enquiry = {
         email : emailRef.current?.value,
@@ -19,7 +20,11 @@ const ContactUsForm = () => {
         phone : phoneRef.current?.value,
         message : messageInput.current?.value
     };
-    console.log(enquiry);
+    const response = await axios.post('https://horizontal-demo-default-rtdb.firebaseio.com/contactus.json', JSON.stringify(enquiry));
+    console.log(response.status);
+    //console.log(response.status);
+    console.log(response.data);
+    //console.log(enquiry);
     event.target.reset();
   };
 
