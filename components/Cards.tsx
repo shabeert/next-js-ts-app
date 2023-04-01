@@ -14,11 +14,7 @@ const Cards = (props: CardsListProps) => {
   const cardsdata = props.cards;
 
     return(
-<<<<<<< HEAD
-        <>
-=======
-        <>        
->>>>>>> main
+<>
            <section className="ftco-services ftco-no-pb">
 			<div className="container-wrap">
 				<div className="row no-gutters">

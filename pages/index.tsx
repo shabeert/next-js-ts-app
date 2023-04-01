@@ -15,21 +15,13 @@ import OurCourses from '@/components/courses/ourcourses'
 const HomePage = (props : any) => {
   return (
     <>
-<<<<<<< HEAD
-    <div>
-      <div>Welcome to Next.js!</div>
-      
-    </div>
-    <Cards cards={props.cards} />
-    <Offer />
-    <TakeCourse promos={props.promos}/>
-=======
+
     <Banner  items = {props.banner}></Banner>    
     <Cards cards={props.cards} />    
     <Offer/>    
-    <TakeCourse/>
+    <TakeCourse promos={props.promos}/>
     <OurCourses courses = {props.courses}></OurCourses>
->>>>>>> main
+
     </>
   );
 };
