@@ -24,7 +24,7 @@ function Banner() {
     <>
       <section className="home-slider owl-carousel">
         {bannerItems.map((item) => (
-          <div
+          <div key={item.id}
             className="slider-item"
             style={{ backgroundImage: `url(${item.image})` }}
           >
