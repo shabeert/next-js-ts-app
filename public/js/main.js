@@ -1,7 +1,7 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide'
- });
+//  AOS.init({
+//  	duration: 800,
+//  	easing: 'slide'
+//  });
 
 (function($) {
 
@@ -38,7 +38,7 @@
 	loader();
 
 	// Scrollax
-   $.Scrollax();
+   //$.Scrollax();
 
 	var carousel = function() {
 		$('.home-slider').owlCarousel({
@@ -109,7 +109,7 @@
 
 
 	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
+	
 	});
 
 	// scroll
@@ -163,7 +163,7 @@
 				$('.number').each(function(){
 					var $this = $(this),
 						num = $this.data('number');
-						console.log(num);
+						
 					$this.animateNumber(
 					  {
 					    number: num,
@@ -246,16 +246,6 @@
 
     fixedContentPos: false
   });
-
-
-//   $('.appointment_date').datepicker({
-// 	  'format': 'm/d/yyyy',
-// 	  'autoclose': true
-// 	});
-
-// 	$('.appointment_time').timepicker();
-
-
 
 
 })(jQuery);
