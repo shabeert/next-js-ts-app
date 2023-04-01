@@ -1,14 +1,12 @@
 const TakeCourse = () => {
-    // const img = require("../../assets/images/security-team.jpg");
-    // const styling = {
-    //     backgroundImage: `url('${img}')`,
-    //     width:"100%",
-    //     height:"100%"
-    // }
+     const img = require("../images/bg_3.jpg");
+    const styling = {
+        backgroundImage: `url('${img}')`
+    }
     return(
         <>
            <h1>Take course component</h1>
-           <section className="ftco-intro" >
+           <section className="ftco-intro" data-stellar-background-ratio="0.5" style={{backgroundImage:'url("../images/bg_3.jpg")'}}>
 			<div className="overlay"></div>
 			<div className="container">
 				<div className="row">
