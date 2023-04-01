@@ -2,7 +2,7 @@ import { DUMMY_COURSEDATA } from "../../data/courses";
 import { useState } from "react";
 function OurCourses(props:any) {
   const [courseList, setCourseList] = useState(props.courses);
-console.log(courseList);
+
   return (
     <>
       <section className="ftco-section">
