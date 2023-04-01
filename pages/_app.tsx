@@ -9,9 +9,10 @@ import '@/styles/ionicons.min.css'
 import '@/styles/flaticon.css'
 import '@/styles/icomoon.css'
 import '@/styles/style.css'
+import Layout from '../components/layout/Layout';
 
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Layout {...pageProps} />
 }
