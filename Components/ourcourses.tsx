@@ -28,7 +28,7 @@ console.log(courseList);
               ></div>
               <div className="text bg-light p-4">
                 <h3>
-                  <a href="#">Arts Lesson</a>
+                  <a href="#">{item.name}</a>
                 </h3>
                 <p className="subheading">
                   <span>Class time:</span>{item.classtime}
