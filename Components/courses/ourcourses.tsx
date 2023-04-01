@@ -1,7 +1,7 @@
-import { DUMMY_COURSEDATA } from "../data/courses";
+import { DUMMY_COURSEDATA } from "../../data/courses";
 import { useState } from "react";
-function OurCourses() {
-  const [courseList, setCourseList] = useState(DUMMY_COURSEDATA);
+function OurCourses(props:any) {
+  const [courseList, setCourseList] = useState(props.courses);
 console.log(courseList);
   return (
     <>
@@ -20,7 +20,7 @@ console.log(courseList);
             </div>
           </div>
           <div className="row">
-          {courseList.map((item) => (
+          {courseList.map((item:any) => (
             <div key={item.id} className="col-md-6 course d-lg-flex ftco-animate">
               <div
                 className="img"

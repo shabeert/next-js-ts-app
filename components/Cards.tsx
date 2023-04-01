@@ -19,8 +19,7 @@ const Cards = (props: CardsListProps) => {
 
   const [cards,setCards] = useState({cardsdata});
     return(
-        <>
-        <h1>Card component</h1>
+        <>        
            <section className="ftco-services ftco-no-pb">
 			<div className="container-wrap">
 				<div className="row no-gutters">

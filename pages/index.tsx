@@ -8,19 +8,19 @@ import Offer from '@/components/Offer'
 import TakeCourse from '@/components/TakeCourse'
 import axios from 'axios'
 import { log } from 'console'
+import Banner from '@/components/banner'
+import OurCourses from '@/components/courses/ourcourses'
 
 
 const HomePage = (props : any) => {
   console.log(props);
   return (
     <>
-    <div>
-      <div>Welcome to Next.js!</div>
-      
-    </div>
-    <Cards cards={props.cards} />
-    <Offer/>
+    <Banner  items = {props.banner}></Banner>    
+    <Cards cards={props.cards} />    
+    <Offer/>    
     <TakeCourse/>
+    <OurCourses courses = {props.courses}></OurCourses>
     </>
   );
 };
@@ -36,12 +36,23 @@ export const getStaticProps = async () => {
     `https://horizontal-demo-default-rtdb.firebaseio.com/promocontent.json`
   );
   const promoData= response.data;
-   
-   console.log(promoData);
+  
+  response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/banners.json`
+  );
+  const bannerData= response.data;
+
+  response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/courses.json `
+  );
+  const ourCoursesData= response.data;
+
   return {
     props: {
       cards: cardsData,
       promos: promoData,
+      banner: bannerData,
+      courses: ourCoursesData,
     },
   };
 };
