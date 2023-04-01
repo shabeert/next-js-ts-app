@@ -15,11 +15,13 @@ import OurCourses from '@/components/courses/ourcourses'
 const HomePage = (props : any) => {
   return (
     <>
+
     <Banner  items = {props.banner}></Banner>    
     <Cards cards={props.cards} />    
     <Offer/>    
-    <TakeCourse/>
+    <TakeCourse promos={props.promos}/>
     <OurCourses courses = {props.courses}></OurCourses>
+
     </>
   );
 };
