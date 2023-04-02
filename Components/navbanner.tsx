@@ -16,11 +16,10 @@ function NavBanner(props: any) {
     return (
 
         <>
-            <section className="hero-wrap hero-wrap-2">
+            <section className="hero-wrap hero-wrap-2" style={{ backgroundImage: `url(${bannerItems.bannerImage})` }}>
 
                 <div key={bannerItems.id}
-                    className="slider-item"
-                    style={{ backgroundImage: `url(${bannerItems.bannerImage})` }}>
+                    className="slider-item">
                     <div className="overlay"></div>
                     <div className="container">
                         <div className="row no-gutters slider-text align-items-center justify-content-center">
