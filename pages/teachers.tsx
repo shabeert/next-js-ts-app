@@ -23,11 +23,11 @@ export default function Teachers(props : any) {
 }
 export async function getStaticProps() {
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/teachers.json`
+    `${process.env.NEXT_PUBLIC_HostName}/teachers.json`
   );
   const teachersData = response.data;
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/navbanners.json`
+    `${process.env.NEXT_PUBLIC_HostName}/navbanners.json`
   );
   const navbannerData= response.data;
   return {
