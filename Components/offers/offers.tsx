@@ -7,12 +7,7 @@ interface OfferCard {
  Detail:string,
   id : string
 }
-interface Content {
-	id: BigInteger;
-	title: string;
-	Detail: string;
-	icon: string;
-  }
+
 const OffersList = (props: any) => {
   const offersList = props.offers.cards?.map((offer: OfferCard,index:number) =>
      
