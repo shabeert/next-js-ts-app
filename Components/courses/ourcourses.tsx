@@ -1,6 +1,7 @@
 import { DUMMY_COURSEDATA } from "../../data/courses";
 import { useState } from "react";
-function OurCourses(props:any) {
+import { CourseProps, CoursesListProps } from "./coursesprops";
+function OurCourses(props:CoursesListProps) {
   const [courseList, setCourseList] = useState(props.courses);
 
   return (
@@ -20,7 +21,7 @@ function OurCourses(props:any) {
             </div>
           </div>
           <div className="row">
-          {courseList.map((item:any) => (
+          {courseList.map((item:CourseProps) => (
             <div key={item.id} className="col-md-6 course d-lg-flex ftco-animate">
               <div
                 className="img"

@@ -1,10 +1,11 @@
 import { DUMMY_COURSEDATA } from "../../data/courses";
 import { useState } from "react";
-function CoursesList(props:any) {
+import { CourseProps, CoursesListProps } from "./coursesprops";
 
+function CoursesList(props: CoursesListProps) {
   const [courseList, setCourseList] = useState(props.courses);
 
-console.log(courseList);
+  console.log(courseList);
   return (
     <>
       <section className="ftco-section">
@@ -22,29 +23,36 @@ console.log(courseList);
             </div>
           </div>
           <div className="row">
-          {courseList.map((item:any) => (
-
-            <div key={item.id} className="col-md-6 course d-lg-flex ftco-animate">
+            {courseList.map((item: CourseProps) => (
               <div
-                className="img"
-                style={{ backgroundImage: `url(${item.image})` }}
-              ></div>
-              <div className="text bg-light p-4">
-                <h3>
-                  <a href="#">{item.name}</a>
-                </h3>
-                <p className="subheading">
-                  <span>Class time:</span>{item.classtime}
-                </p>
-                <p>
-                 {item.description}
-                </p>
-                <p>
-                <a href={`/courses/${item.id}`} className="btn btn-secondary px-4 py-3 mt-3">Read More</a>
-                </p>
+                key={item.id}
+                className="col-md-6 course d-lg-flex ftco-animate"
+              >
+                <div
+                  className="img"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                ></div>
+                <div className="text bg-light p-4">
+                  <h3>
+                    <a href="#">{item.name}</a>
+                  </h3>
+                  <p className="subheading">
+                    <span>Class time:</span>
+                    {item.classtime}
+                  </p>
+                  <p>{item.description}</p>
+                  <p>
+                    <a
+                      href={`/courses/${item.id}`}
+                      className="btn btn-secondary px-4 py-3 mt-3"
+                    >
+                      Read More
+                    </a>
+                  </p>
+                </div>
               </div>
-            </div>       
-          ))};    
+            ))}
+            ;
           </div>
         </div>
       </section>

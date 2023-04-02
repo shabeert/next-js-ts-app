@@ -29,22 +29,22 @@ const HomePage = (props : any) => {
 
 export const getStaticProps = async () => {
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/cards.json`
+    `${process.env.NEXT_PUBLIC_HostName}/cards.json`
   );
   const cardsData= response.data;
 
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/promocontent.json`
+    `${process.env.NEXT_PUBLIC_HostName}/promocontent.json`
   );
   const promoData= response.data;
   
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/banners.json`
+    `${process.env.NEXT_PUBLIC_HostName}/banners.json`
   );
   const bannerData= response.data;
 
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/courses.json `
+    `${process.env.NEXT_PUBLIC_HostName}/courses.json `
   );
   const ourCoursesData= response.data;
 
