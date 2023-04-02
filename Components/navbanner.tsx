@@ -17,7 +17,6 @@ function NavBanner(props: any) {
 
         <>
             <section className="hero-wrap hero-wrap-2">
-
                 <div key={bannerItems.id}
                     className="slider-item"
                     style={{ backgroundImage: `url(${bannerItems.bannerImage})` }}>
