@@ -13,7 +13,7 @@ interface PricesCard {
 const PriceList = (props: any) => {
   console.log(props.pricelist);
   const priceList = props.pricelist?.map((price: PricesCard) =>
-    <PriceCard backgroundImage={price.backgroundImage}
+    <PriceCard key={price.title} backgroundImage={price.backgroundImage}
       cost={price.cost}
       description={price.description}
       link={price.link}
