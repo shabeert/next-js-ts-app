@@ -7,7 +7,7 @@ type ReviewsListProps = {
 };
 
 interface ReviewCard {
-  backgroundImage: string,
+  "background-image": string,
   icon: string,
   cardDescription: string,
   cardName: string,
@@ -15,9 +15,9 @@ interface ReviewCard {
 }
 
 const ReviewsList = (props: any) => {
-  console.log(props.reviewsList);
-  const reviewsList = props.reviewsList.cards?.map((review: ReviewCard) =>
-    <ReviewCard backgroundImage={review.backgroundImage}
+  console.log(props.reviews);
+  const reviewsList = props.reviews.cards?.map((review: ReviewCard) =>
+    <ReviewCard background-image={review["background-image"]}
       icon={review.icon}
       cardDescription={review.cardDescription}
       cardName={review.cardName}
@@ -32,9 +32,9 @@ const ReviewsList = (props: any) => {
         <div className="row justify-content-center mb-5 pb-2">
           <div className="col-md-8 text-center heading-section ftco-animate">
             <h2 className="mb-4">
-              <span>{props.reviewsList.title}</span>
+              <span>{props.reviews.title}</span>
             </h2>
-            <p>{props.reviewsList.description}</p>
+            <p>{props.reviews.description}</p>
           </div>
         </div>
         <div className="row ftco-animate justify-content-center">
