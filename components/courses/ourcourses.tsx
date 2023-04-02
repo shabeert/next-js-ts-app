@@ -29,7 +29,7 @@ function OurCourses(props:CoursesListProps) {
               ></div>
               <div className="text bg-light p-4">
                 <h3>
-                  <a href="#">{item.name}</a>
+                  <a href={`/courses/${item.id}`}>{item.name}</a>
                 </h3>
                 <p className="subheading">
                   <span>Class time:</span>{item.classtime}
