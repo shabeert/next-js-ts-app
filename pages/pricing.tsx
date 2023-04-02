@@ -12,64 +12,13 @@ function Courses(props:any) {
 }
 export const getStaticProps = async () => {
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/pricing.json `
+    `https://horizontal-demo-default-rtdb.firebaseio.com/pricelist.json`
   );
-  const priceListData= [ {
-    "title": "Basic",
-    "cost": "$24.50",
-    "perPersonText": "5mos",
-    "backgroundImage": "images/bg_1.jpg",
-    "description": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-    "link": "/courses",
-    "linkText": "Take A Course"
-  },
-  {
-    "title": "Standard",
-    "cost": "$34.50",
-    "perPersonText": "5mos",
-    "backgroundImage": "images/bg_2.jpg",
-    "description": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-    "link": "/courses",
-    "linkText": "Take A Course"
-  },
-  {
-    "title": "Premium",
-    "cost": "$54.50",
-    "perPersonText": "5mos",
-    "backgroundImage": "images/bg_3.jpg",
-    "description": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-    "link": "/courses",
-    "linkText": "Take A Course"
-  },
-  {
-    "title": "Platinum",
-    "cost": "$89.50",
-    "perPersonText": "5mos",
-    "backgroundImage": "images/bg_5.jpg",
-    "description": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-    "link": "/courses",
-    "linkText": "Take A Course"
-  }
-  ];
+  const priceListData= response.data;
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/banners.json`
+    `https://horizontal-demo-default-rtdb.firebaseio.com/navbanners.json`
   );
-  const navbannerData={
-    "courses":{
-          "id":"b1",
-      "bannerImage":"images/bg_2.jpg",
-      "bannerTitle":"Our Courses",
-      "pageTitle":"COURSES",
-      "homeTitle":"HOME"
-    },
-    "pricing":{
-          "id":"b2",
-      "bannerImage":"images/bg_2.jpg",
-      "bannerTitle":"Pricing",
-      "pageTitle":"PRICING",
-      "homeTitle":"HOME"
-    }
-  };
+  const navbannerData=response.data;
   return {
     props: {     
       pricelist: priceListData,

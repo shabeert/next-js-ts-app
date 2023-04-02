@@ -16,24 +16,9 @@ export const getStaticProps = async () => {
   );
   const ourCoursesData= response.data;
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/banners.json`
+    `https://horizontal-demo-default-rtdb.firebaseio.com/navbanners.json`
   );
-  const navbannerData= {
-    "courses":{
-          "id":"b1",
-      "bannerImage":"images/bg_2.jpg",
-      "bannerTitle":"Our Courses",
-      "pageTitle":"COURSES",
-      "homeTitle":"HOME"
-    },
-    "pricing":{
-          "id":"b2",
-      "bannerImage":"images/bg_2.jpg",
-      "bannerTitle":"Pricing",
-      "pageTitle":"PRICING",
-      "homeTitle":"HOME"
-    }
-  };
+  const navbannerData= response.data;
   return {
     props: {     
       courses: ourCoursesData,
