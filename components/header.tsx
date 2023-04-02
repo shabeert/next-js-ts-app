@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { link } from 'fs';
 import Link from 'next/link'
 import { layouttype } from './layout/LayoutData'
 
@@ -13,14 +14,11 @@ const HeaderComponent = (props:layouttype) => {
 	      </button>
 	      <div className="collapse navbar-collapse" id="ftco-nav">
 	        <ul className="navbar-nav ml-auto">
-			
-	        	<li className="nav-item active"><a href='/' className="nav-link pl-0">Home </a></li>
-	        	<li className="nav-item"><Link href="/about" className="nav-link ">About</Link></li>
-	        	<li className="nav-item"><a href='/teachers' className="nav-link pl-0">Teacher </a></li>
-	        	<li className="nav-item"><Link href="/courses" className="nav-link ">Courses</Link></li>
-	        	<li className="nav-item"><Link href="/pricing" className="nav-link ">Pricing</Link></li>
-	        	<li className="nav-item"><Link href="/blog" className="nav-link ">Blog</Link></li>
-	          <li className="nav-item"><Link href="/contact" className="nav-link ">Contact</Link></li>
+			{HeaderData.Links.map((link)=>(
+				<li key={"1"} className="nav-item "><a href={link.LinkUrl} className="nav-link ">{link.LinkText} </a></li>	        
+			)
+			)	        	
+			}
 	        </ul>
 	      </div>
 	    </div>

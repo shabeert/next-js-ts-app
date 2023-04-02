@@ -16,10 +16,10 @@ export interface links{
 }
 
 export interface LayoutData {
-    Address: Address[],
+    Address: Address,
     Links: links[],
     Title:string,
-    ContactUsQuestion: ContactUsQuestion[]
+    ContactUsQuestion: ContactUsQuestion
 }
 export type layouttype={
     layoutdata:LayoutData;
