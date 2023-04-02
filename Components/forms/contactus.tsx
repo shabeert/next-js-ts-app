@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useReducer, useRef } from "react";
+import { useReducer, useRef, useState } from "react";
 
 
 const ContactUsForm = () => {
@@ -9,10 +9,12 @@ const ContactUsForm = () => {
   const lastNameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const phoneRef =useRef<HTMLInputElement>(null);
+  const [submitState, setSubmitState] = useState(false);
   
 
   const submitHandler = async (event: any) => {
     event.preventDefault();
+    setSubmitState(false);
     var enquiry = {
         email : emailRef.current?.value,
         firstname : firstNameRef.current?.value,
@@ -21,9 +23,20 @@ const ContactUsForm = () => {
         message : messageInput.current?.value
     };
     const response = await axios.post('https://horizontal-demo-default-rtdb.firebaseio.com/contactus.json', JSON.stringify(enquiry));
+<<<<<<< HEAD
    
+=======
+    if(response.status === 200){
+        setSubmitState(true);
+    }
+    console.log(response.data);
+>>>>>>> a0f7ce95204c31042474297ad2f5078b339ad2f8
     event.target.reset();
   };
+
+  const firstNameChangeHandler = () => {
+    setSubmitState(false);
+  }
 
   return (
     <section
@@ -50,6 +63,7 @@ const ContactUsForm = () => {
                     placeholder="First Name"
                     required
                     ref={firstNameRef}
+                    onFocus={firstNameChangeHandler}
                   />
                 </div>
                 <div className="form-group ml-md-4">
@@ -104,16 +118,20 @@ const ContactUsForm = () => {
                   />
                 </div>
               </div>
+              {submitState && <p className="success">Your Record is Successfully Inserted</p>}
+              
+    <style jsx>{`
+        .success
+        {
+         font-size: 14px;
+         font-color : green;
+        }
+      `}</style>
             </form>
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .error
-        {
-         border:1px solid red;
-        }
-      `}</style>
+      
     </section>
   );
 };
