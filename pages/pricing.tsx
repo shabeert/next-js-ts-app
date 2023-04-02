@@ -12,11 +12,11 @@ function Courses(props:any) {
 }
 export const getStaticProps = async () => {
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/pricelist.json`
+    `${process.env.NEXT_PUBLIC_HostName}/pricelist.json`
   );
   const priceListData= response.data;
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/navbanners.json`
+    `${process.env.NEXT_PUBLIC_HostName}/navbanners.json`
   );
   const navbannerData=response.data;
   return {

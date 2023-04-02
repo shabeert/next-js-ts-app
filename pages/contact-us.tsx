@@ -27,7 +27,7 @@ export default function Teachers(props : any) {
 
 export async function getServerSideProps() {
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/teachers.json`
+    `${process.env.NEXT_PUBLIC_HostName}/teachers.json`
   );
   const teachersData = response.data;
 
