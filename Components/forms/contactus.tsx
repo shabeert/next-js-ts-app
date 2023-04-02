@@ -23,20 +23,16 @@ const ContactUsForm = () => {
         message : messageInput.current?.value
     };
     const response = await axios.post('https://horizontal-demo-default-rtdb.firebaseio.com/contactus.json', JSON.stringify(enquiry));
-<<<<<<< HEAD
-   
-=======
     if(response.status === 200){
         setSubmitState(true);
     }
     console.log(response.data);
->>>>>>> a0f7ce95204c31042474297ad2f5078b339ad2f8
     event.target.reset();
   };
 
   const firstNameChangeHandler = () => {
     setSubmitState(false);
-  }
+  };
 
   return (
     <section
