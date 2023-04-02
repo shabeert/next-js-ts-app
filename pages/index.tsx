@@ -3,61 +3,72 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Layout from '@/components/layout/Layout'
-import Reviews from '@/components/Reviews/reviews'
+import Cards from '@/components/Cards'
+import Offer from '@/components/Offer'
+import TakeCourse from '@/components/TakeCourse'
+import axios from 'axios'
+import { log } from 'console'
+import Banner from '@/components/banner'
+import OurCourses from '@/components/courses/ourcourses'
+import TeachersList from '@/components/teachers/TeachersList'
+import ReviewsList from '@/components/Reviews/reviews'
 
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home(props:any) {
+const HomePage = (props : any) => {
   return (
     <>
-      
-     
-      <div>Main component</div>
-      <Reviews reviewsList={props.reviewsData}></Reviews>
-      
-    </>
-  )
-}
 
-const Dummy_review = {
-  title: "What Parents Says About Us",
-  description: "Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country",
-  cards: [
-    {
-      "backgroundImage": "images/teacher-3.jpg",
-      "icon": "icon-quote-left",
-      "cardDescription": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      "cardName": "Mark Huff",
-      "cardPosition": "Mother"
-    },
-    {
-      "backgroundImage": "images/teacher-4.jpg",
-      "icon": "icon-quote-left",
-      "cardDescription": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      "cardName": "Rodel Golez",
-      "cardPosition": "Mother"
-    },
-    {
-      "backgroundImage": "images/teacher-1.jpg",
-      "icon": "icon-quote-left",
-      "cardDescription": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      "cardName": "Ken Bosh",
-      "cardPosition": "Mother"
-    },
-    {
-      "backgroundImage": "images/teacher-1.jpg",
-      "icon": "icon-quote-left",
-      "cardDescription": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
-      "cardName": "Racky Henderson",
-      "cardPosition": "Mother"
-    }
-  ]
-}
-export async function getStaticProps() {
+    <Banner  items = {props.banner}></Banner>    
+    <Cards cards={props.cards} />    
+    <Offer/>    
+    <TakeCourse promos={props.promos}/>
+    <OurCourses courses = {props.courses}></OurCourses>    
+    <TeachersList teachers={props.teachers}></TeachersList>
+    <ReviewsList reviews={props.reviews}></ReviewsList>
+    </>
+  );
+};
+
+
+export const getStaticProps = async () => {
+  var response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/cards.json`
+  );
+  const cardsData= response.data;
+
+  response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/promocontent.json`
+  );
+  const promoData= response.data;
+  
+  response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/banners.json`
+  );
+  const bannerData= response.data;
+
+  response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/courses.json `
+  );
+  const ourCoursesData= response.data;
+  
+  var response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/teachers.json`
+  );
+  const teachersData = response.data;
+  
+  var response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/reviews.json`
+  );
+  const reviewsData = response.data;
   return {
     props: {
-      reviewsData:Dummy_review,
+      cards: cardsData,
+      promos: promoData,
+      banner: bannerData,
+      courses: ourCoursesData,
+      teachers: teachersData,
+      reviews: reviewsData,
     },
   };
-}
+};
+export default HomePage;
