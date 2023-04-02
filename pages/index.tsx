@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Layout from '@/components/layout/Layout'
 import Cards from '@/components/Cards'
-import Offer from '@/components/Offer'
+import Offer from '@/components/offers/offers'
 import TakeCourse from '@/components/TakeCourse'
 import axios from 'axios'
 import { log } from 'console'
@@ -17,10 +17,9 @@ import ReviewsList from '@/components/Reviews/reviews'
 const HomePage = (props : any) => {
   return (
     <>
-
     <Banner  items = {props.banner}></Banner>    
     <Cards cards={props.cards} />    
-    <Offer/>    
+    <Offer offers={props.offers} contents={props.contents}/>    
     <TakeCourse promos={props.promos}/>
     <OurCourses courses = {props.courses}></OurCourses>    
     <TeachersList teachers={props.teachers}></TeachersList>
@@ -60,6 +59,16 @@ export const getStaticProps = async () => {
     `https://horizontal-demo-default-rtdb.firebaseio.com/reviews.json`
   );
   const reviewsData = response.data;
+
+  var response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/offers.json`
+  );
+  const offersData = response.data;
+
+  var response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/contentblock.json`
+  );
+  const contentBlockData = response.data;
   return {
     props: {
       cards: cardsData,
@@ -68,6 +77,8 @@ export const getStaticProps = async () => {
       courses: ourCoursesData,
       teachers: teachersData,
       reviews: reviewsData,
+      offers: offersData,
+      contents: contentBlockData,
     },
   };
 };
