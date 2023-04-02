@@ -1,11 +1,5 @@
 import ReviewCard from "./reviewcard";
 
-type ReviewsListProps = {
-  title: string;
-  description: string;
-  cards: ReviewCard[];
-};
-
 interface ReviewCard {
   "background-image": string,
   icon: string,
@@ -41,34 +35,6 @@ const ReviewsList = (props: any) => {
           <div className="col-md-12">
             <div className="carousel-testimony owl-carousel">
               {reviewsList}
-
-
-              <div className="owl-nav disabled">
-                <button role="presentation" className="owl-prev">
-                  <span className="ion-ios-arrow-back"></span>
-                </button>
-                <button role="presentation" className="owl-next">
-                  <span className="ion-ios-arrow-forward"></span>
-                </button>
-              </div>
-              <div className="owl-dots">
-                <button className="owl-dot">
-                  <span></span>
-                </button>
-                <button className="owl-dot">
-                  <span></span>
-                </button>
-                <button className="owl-dot">
-                  <span></span>
-                </button>
-                <button className="owl-dot active">
-                  <span></span>
-                </button>
-                <button className="owl-dot">
-                  <span></span>
-                </button>
-              </div>
-
             </div>
           </div>
         </div>
