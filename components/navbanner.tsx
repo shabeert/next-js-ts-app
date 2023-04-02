@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { useState } from "react";
 
@@ -24,8 +25,8 @@ function NavBanner(props: any) {
                         <div className="row no-gutters slider-text align-items-center justify-content-center">
                             <div className="col-md-9 ftco-animate text-center">
                                 <h1 className="mb-2 bread">{bannerItems.bannerTitle}</h1>
-                                <p className="breadcrumbs"><span className="mr-2"><a href="#">{bannerItems.homeTitle}
-                                    <i className="ion-ios-arrow-forward"></i></a></span> <span>{bannerItems.pageTitle} <i className="ion-ios-arrow-forward"></i></span></p>
+                                <p className="breadcrumbs"><span className="mr-2"><Link href="/">{bannerItems.homeTitle}
+                                    <i className="ion-ios-arrow-forward"></i></Link></span> <span>{bannerItems.pageTitle} <i className="ion-ios-arrow-forward"></i></span></p>
                             </div>
 
                         </div>

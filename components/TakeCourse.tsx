@@ -1,3 +1,4 @@
+import Link from "next/link";
 type PromosListProps = {
 	promos: Promo;
   };
@@ -23,7 +24,7 @@ const TakeCourse = (props: PromosListProps) => {
 						<p className="mb-0">{promodata.Detail}</p>
 					</div>
 					<div className="col-md-3 d-flex align-items-center">
-						<p className="mb-0"><a href="#" className="btn btn-secondary px-4 py-3">{promodata.btn_text}</a></p>
+						<p className="mb-0"><Link href="/" className="btn btn-secondary px-4 py-3">{promodata.btn_text}</Link></p>
 					</div>
 				</div>
 			</div>
