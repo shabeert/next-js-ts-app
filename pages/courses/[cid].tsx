@@ -7,4 +7,6 @@ const Post = () => {
   return <p>CourseID: {cid}</p>
 }
 
+
+
 export default Post
