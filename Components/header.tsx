@@ -1,10 +1,13 @@
+import axios from 'axios';
 import Link from 'next/link'
+import { layouttype } from './layout/LayoutData'
 
-function HeaderComponent(){
+const HeaderComponent = (props: layouttype) => {
+	const HeaderData = props.layoutdata
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
 	    <div className="container d-flex align-items-center">
-		<Link href="/" className="navbar-brand">Kiddos</Link>
+		<Link href="/" className="navbar-brand"></Link>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span className="oi oi-menu"></span> Menu
 	      </button>
@@ -27,3 +30,5 @@ function HeaderComponent(){
 }
 
 export default  HeaderComponent
+
+
