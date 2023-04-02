@@ -5,7 +5,7 @@ import NavBanner from "@/components/navbanner";
 function Courses(props:any) {
   return (
     <>
-    <NavBanner items = {props.navbanner} ></NavBanner>
+    <NavBanner banner = {props.navbanner} ></NavBanner>
      <CoursesList courses = {props.courses}></CoursesList>
     </>
   );
@@ -18,11 +18,26 @@ export const getStaticProps = async () => {
   response = await axios.get(
     `https://horizontal-demo-default-rtdb.firebaseio.com/banners.json`
   );
-  const navbannerData= response.data;
+  const navbannerData= {
+    "courses":{
+          "id":"b1",
+      "bannerImage":"images/bg_2.jpg",
+      "bannerTitle":"Our Courses",
+      "pageTitle":"COURSES",
+      "homeTitle":"HOME"
+    },
+    "pricing":{
+          "id":"b2",
+      "bannerImage":"images/bg_2.jpg",
+      "bannerTitle":"Pricing",
+      "pageTitle":"PRICING",
+      "homeTitle":"HOME"
+    }
+  };
   return {
     props: {     
       courses: ourCoursesData,
-      navbanner : navbannerData
+      navbanner : navbannerData.courses
     },
   };
 };
