@@ -16,7 +16,6 @@ function NavBanner(props: any) {
     return (
 
         <>
-
             <section className="hero-wrap hero-wrap-2">
 
                 <div key={bannerItems.id}
@@ -33,10 +32,8 @@ function NavBanner(props: any) {
                         </div>
                     </div>
                 </div>
-
             </section>
         </>
-
     );
 }
 export default NavBanner;
