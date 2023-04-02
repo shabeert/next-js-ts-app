@@ -32,7 +32,7 @@ const ContactUsForm = () => {
 
   const firstNameChangeHandler = () => {
     setSubmitState(false);
-  }
+  };
 
   return (
     <section

@@ -4,7 +4,6 @@ function CoursesList(props:any) {
 
   const [courseList, setCourseList] = useState(props.courses);
 
-console.log(courseList);
   return (
     <>
       <section className="ftco-section">

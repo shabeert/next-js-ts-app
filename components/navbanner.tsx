@@ -28,6 +28,7 @@ function NavBanner(props: any) {
                                 <p className="breadcrumbs"><span className="mr-2"><Link href="/">{bannerItems.homeTitle}
                                     <i className="ion-ios-arrow-forward"></i></Link></span> <span>{bannerItems.pageTitle} <i className="ion-ios-arrow-forward"></i></span></p>
                             </div>
+
                         </div>
                     </div>
                 </div>

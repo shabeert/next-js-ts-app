@@ -1,5 +1,5 @@
 import Teacher from "./Teacher";
-
+import NavBanner from "../navbanner";
 type TeachersListProps = {
   teachers: Teacher[];
 };
@@ -28,6 +28,7 @@ const TeachersList = (props: TeachersListProps) => {
       ></Teacher>
     ));
   return (
+
     <section className="ftco-section ftco-no-pb">
       <div className="container">
         <div className="row justify-content-center mb-5 pb-2">
