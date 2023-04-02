@@ -11,6 +11,7 @@ import { log } from 'console'
 import Banner from '@/components/banner'
 import OurCourses from '@/components/courses/ourcourses'
 import TeachersList from '@/components/teachers/TeachersList'
+import ReviewsList from '@/components/Reviews/reviews'
 
 
 const HomePage = (props : any) => {
@@ -23,7 +24,7 @@ const HomePage = (props : any) => {
     <TakeCourse promos={props.promos}/>
     <OurCourses courses = {props.courses}></OurCourses>    
     <TeachersList teachers={props.teachers}></TeachersList>
-    
+    <ReviewsList reviews={props.reviews}></ReviewsList>
     </>
   );
 };
@@ -54,13 +55,19 @@ export const getStaticProps = async () => {
     `https://horizontal-demo-default-rtdb.firebaseio.com/teachers.json`
   );
   const teachersData = response.data;
+  
+  var response = await axios.get(
+    `https://horizontal-demo-default-rtdb.firebaseio.com/reviews.json`
+  );
+  const reviewsData = response.data;
   return {
     props: {
       cards: cardsData,
       promos: promoData,
       banner: bannerData,
       courses: ourCoursesData,
-      teachers: teachersData
+      teachers: teachersData,
+      reviews: reviewsData,
     },
   };
 };
