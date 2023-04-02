@@ -1,5 +1,13 @@
 import ReviewCard from "./reviewcard";
 
+interface ReviewsListProps{
+  reviews:{
+  cards:ReviewCard[],
+  title:string,
+  description:string
+  }
+}
+
 interface ReviewCard {
   "background-image": string,
   icon: string,
@@ -9,7 +17,7 @@ interface ReviewCard {
   id : number
 }
 
-const ReviewsList = (props: any) => {
+const ReviewsList = (props: ReviewsListProps) => {
 
   
   const reviewsList = props.reviews.cards?.map((review: ReviewCard,index:number) =>

@@ -1,5 +1,9 @@
 import PriceCard from "./pricecard";
 
+interface PriceListProps{
+  pricelist: PricesCard[]
+};
+
 interface PricesCard {
   title: string,
   cost: string,
@@ -10,10 +14,10 @@ interface PricesCard {
   linkText: string
 };
 
-const PriceList = (props: any) => {
+const PriceList = (props: PriceListProps) => {
   console.log(props.pricelist);
   const priceList = props.pricelist?.map((price: PricesCard) =>
-    <PriceCard backgroundImage={price.backgroundImage}
+    <PriceCard key={price.title} backgroundImage={price.backgroundImage}
       cost={price.cost}
       description={price.description}
       link={price.link}
