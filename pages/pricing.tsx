@@ -10,7 +10,7 @@ function Courses(props:any) {
     </>
   );
 }
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   var response = await axios.get(
     `https://horizontal-demo-default-rtdb.firebaseio.com/pricelist.json`
   );
