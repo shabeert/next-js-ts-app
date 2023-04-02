@@ -21,10 +21,7 @@ const ContactUsForm = () => {
         message : messageInput.current?.value
     };
     const response = await axios.post('https://horizontal-demo-default-rtdb.firebaseio.com/contactus.json', JSON.stringify(enquiry));
-    console.log(response.status);
-    //console.log(response.status);
-    console.log(response.data);
-    //console.log(enquiry);
+   
     event.target.reset();
   };
 

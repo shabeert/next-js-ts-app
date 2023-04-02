@@ -5,17 +5,21 @@ interface ReviewCard {
   icon: string,
   cardDescription: string,
   cardName: string,
-  cardPosition: string
+  cardPosition: string,
+  id : number
 }
 
 const ReviewsList = (props: any) => {
-  console.log(props.reviews);
-  const reviewsList = props.reviews.cards?.map((review: ReviewCard) =>
+
+  
+  const reviewsList = props.reviews.cards?.map((review: ReviewCard,index:number) =>
+     
     <ReviewCard background-image={review["background-image"]}
       icon={review.icon}
       cardDescription={review.cardDescription}
       cardName={review.cardName}
-      cardPosition={review.cardPosition}></ReviewCard>
+      cardPosition={review.cardPosition}
+       key={(index+1).toString()}></ReviewCard>
   );
 
 

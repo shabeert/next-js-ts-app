@@ -21,7 +21,7 @@ const Cards = (props: CardsListProps) => {
           {
             cardsdata.map((card) => (
               
-              <div className="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-primary">
+              <div key={card.id.toString()} className="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-primary">
         <div className="media block-6 d-block text-center">
           <div className="icon d-flex justify-content-center align-items-center">
                 <span className={card.icon}></span>
