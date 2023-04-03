@@ -12,18 +12,24 @@ import Banner from '@/components/banner'
 import OurCourses from '@/components/courses/ourcourses'
 import TeachersList from '@/components/teachers/TeachersList'
 import ReviewsList from '@/components/Reviews/reviews'
+import HeaderComponent from '@/components/header'
+import { layouttype } from '@/components/layout/LayoutData'
+import FooterComponent from '@/components/footer'
 
 
 const HomePage = (props : any) => {
+  console.log(props.footer);
   return (
     <>
-    <Banner  items = {props.banner}></Banner>    
+     <HeaderComponent layoutdata={props.footer}></HeaderComponent> 
+    <Banner  items = {props.banner}></Banner>  
     <Cards cards={props.cards} />    
     <Offer offers={props.offers} contents={props.contents}/>    
     <TakeCourse promos={props.promos}/>
     <OurCourses courses = {props.courses}></OurCourses>    
     <TeachersList teachers={props.teachers}></TeachersList>
     <ReviewsList reviews={props.reviews}></ReviewsList>
+    <FooterComponent layoutdata={props.footer}></FooterComponent>
     </>
   );
 };
@@ -31,44 +37,48 @@ const HomePage = (props : any) => {
 
 export const getStaticProps = async () => {
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/cards.json`
+    `${process.env.NEXT_PUBLIC_HostName}/cards.json`
   );
   const cardsData= response.data;
 
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/promocontent.json`
+    `${process.env.NEXT_PUBLIC_HostName}/promocontent.json`
   );
   const promoData= response.data;
   
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/banners.json`
+    `${process.env.NEXT_PUBLIC_HostName}/banners.json`
   );
   const bannerData= response.data;
 
   response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/courses.json `
+    `${process.env.NEXT_PUBLIC_HostName}/courses.json `
   );
   const ourCoursesData= response.data;
   
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/teachers.json`
+    `${process.env.NEXT_PUBLIC_HostName}/teachers.json`
   );
   const teachersData = response.data;
   
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/reviews.json`
+    `${process.env.NEXT_PUBLIC_HostName}/reviews.json`
   );
   const reviewsData = response.data;
 
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/offers.json`
+    `${process.env.NEXT_PUBLIC_HostName}/offers.json`
   );
   const offersData = response.data;
 
   var response = await axios.get(
-    `https://horizontal-demo-default-rtdb.firebaseio.com/contentblock.json`
+    `${process.env.NEXT_PUBLIC_HostName}/contentblock.json`
   );
   const contentBlockData = response.data;
+  var response = await axios.get(
+    `${process.env.NEXT_PUBLIC_HostName}/footer.json`
+  );
+  const FooterData = response.data;
   return {
     props: {
       cards: cardsData,
@@ -79,6 +89,7 @@ export const getStaticProps = async () => {
       reviews: reviewsData,
       offers: offersData,
       contents: contentBlockData,
+      footer: FooterData
     },
   };
 };
