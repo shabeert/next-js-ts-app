@@ -8,7 +8,7 @@ const HeaderComponent = (props:layouttype) => {
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
 	    <div className="container d-flex align-items-center">
-		<Link href="/" className="navbar-brand">{HeaderData.Title}</Link>
+		<a href="/" className="navbar-brand">{HeaderData.Title}</a>
 				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span className="oi oi-menu"></span> Menu
 	      </button>

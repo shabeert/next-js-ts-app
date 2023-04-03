@@ -1,18 +1,18 @@
 import { useRouter } from "next/router";
-import { DUMMY_COURSEDATA } from "../../data/courses";
 import axios from "axios";
-import { useState } from "react";
-import {
-  CoursesListProps,
-  CourseProps,
-} from "@/components/courses/coursesprops";
+import { CourseProps } from "@/components/courses/coursesprops";
 import Course from "@/components/courses/course";
-const CourseDetail = (props: CoursesListProps) => {
+import HeaderComponent from "@/components/header";
+import FooterComponent from "@/components/footer";
+import Head from "next/head";
+
+const CourseDetail = (props: any) => {
   const router = useRouter();
   const { cid } = router.query;
+  const metaDescription = `This is a desription for  cid ${cid}`;
   const courseDetails = props.courses
-    .filter((c) => c.id.toString() == cid)
-    .map((c) => (
+    .filter((c: CourseProps) => c.id.toString() == cid)
+    .map((c: CourseProps) => (
       <Course
         id={c.id}
         classtime={c.classtime}
@@ -24,9 +24,17 @@ const CourseDetail = (props: CoursesListProps) => {
       ></Course>
     ));
 
-  return <><div className="row">
-  {courseDetails}
-</div></>;
+  return (
+    <>
+      <Head>
+        <title>{cid}</title>
+        <meta name="description" content={metaDescription}></meta>
+      </Head>
+      <HeaderComponent layoutdata={props.footer}></HeaderComponent>
+      <div className="row">{courseDetails}</div>
+      <FooterComponent layoutdata={props.footer}></FooterComponent>
+    </>
+  );
 };
 
 export async function getStaticPaths() {
@@ -35,7 +43,7 @@ export async function getStaticPaths() {
   );
   const ourCoursesData = response.data;
   const paths = ourCoursesData.map((c: CourseProps) => ({
-    params: { cid: c.id},
+    params: { cid: c.id },
   }));
 
   return {
@@ -49,10 +57,15 @@ export const getStaticProps = async () => {
     `${process.env.NEXT_PUBLIC_HostName}/courses.json `
   );
   const ourCoursesData = response.data;
+  var response = await axios.get(
+    `${process.env.NEXT_PUBLIC_HostName}/footer.json`
+  );
+  const FooterData = response.data;
 
   return {
     props: {
       courses: ourCoursesData,
+      footer: FooterData,
     },
   };
 };
